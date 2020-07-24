@@ -11,12 +11,58 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    let requestFactory = RequestFactory()
+    let user = UserSession.instance
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        return true
+        let auth = requestFactory.makeAuthRequestFatory()
+        
+        user.id = 123
+        user.name = "Somebody"
+        user.password = "mypassword"
+        user.email = "some@some.ru"
+        user.gender = "male"
+        user.creditCard = "9872389-2424-234224-234"
+        user.bio = "This is good! I think I will switch to another language"
+            
+        auth.registration(id: user.id, userName: user.name, password: user.password, email: user.email, gender: user.gender, creditCard: user.creditCard, bio: user.bio) { response in
+            switch response.result {
+                case .success(let answer):
+                    print("registration ", answer)
+                case .failure(let error):
+                    print(error.localizedDescription)
+            }
+        }
+        
+        auth.logout(id: user.id) { response in
+            switch response.result {
+                case .success(let answer):
+                    print("logout", answer)
+                case .failure(let error):
+                    print(error.localizedDescription)
+            }
+        }
+        
+        auth.login(userName: user.name, password: user.password) { response in
+            switch response.result {
+                case .success(let answer):
+                    print("login", answer)
+                case .failure(let error):
+                    print(error.localizedDescription)
+            }
+        }
+        
+        auth.edit(id: user.id, userName: user.name, password: user.password, email: user.email, gender: user.gender, creditCard: user.creditCard, bio: user.bio) { response in
+            switch response.result {
+                case .success(let answer):
+                    print("edit", answer)
+                case .failure(let error):
+                    print(error.localizedDescription)
+            }
+        }
+            return true
     }
+
 
     // MARK: UISceneSession Lifecycle
 
