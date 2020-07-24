@@ -13,7 +13,7 @@ extension Auth {
     struct Registration: RequestRouter {
         let baseUrl: URL
         let method: HTTPMethod = .get
-        let path: String = "login.json"
+        let path: String = "registerUser.json"
         
         let id: Int
         let login: String

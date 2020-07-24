@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct LoginResult: Codable {
+struct AuthResult: Codable {
     let result: Int
     let user: User?
 }
