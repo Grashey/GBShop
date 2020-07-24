@@ -15,4 +15,10 @@ class UserSession {
     
     var token = String()
     var id = Int()
+    var name = String()
+    var password = String()
+    var email = String()
+    var gender = String()
+    var creditCard = String()
+    var bio = String()
 }

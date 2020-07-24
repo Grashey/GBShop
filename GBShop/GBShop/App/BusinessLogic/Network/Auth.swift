@@ -26,25 +26,37 @@ class Auth: AbstractRequestFactory {
 }
 
 extension Auth: AuthRequestFactory {
-    func login(userName: String, password: String, completionHandler: @escaping (AFDataResponse<LoginResult>) -> Void) {
+    func login(userName: String, password: String, completionHandler: @escaping (AFDataResponse<AuthResult>) -> Void) {
         let requestModel = Login(baseUrl: baseUrl, login: userName, password: password)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
     
-    func logout(id: Int, completionHandler: @escaping (AFDataResponse<LoginResult>) -> Void) {
+    func logout(id: Int, completionHandler: @escaping (AFDataResponse<AuthResult>) -> Void) {
         let requestModel = Logout(baseUrl: baseUrl, id: id)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
     
-    func registration(id: Int, userName: String, password: String, completionHandler: @escaping (AFDataResponse<LoginResult>) -> Void) {
+    func registration(id: Int, userName: String, password: String, email: String, gender: String, creditCard: String, bio: String, completionHandler: @escaping (AFDataResponse<AuthResult>) -> Void) {
         let requestModel = Registration(baseUrl: baseUrl,
                                         id: id,
                                         login: userName,
                                         password: password,
-                                        email: "some@some.ru",
-                                        gender: "male",
-                                        creditCard: "9872389-2424-234224-234",
-                                        bio: "This is good!")
+                                        email: email,
+                                        gender: gender,
+                                        creditCard: creditCard,
+                                        bio: bio)
+        self.request(request: requestModel, completionHandler: completionHandler)
+    }
+    
+    func edit(id: Int, userName: String, password: String, email: String, gender: String, creditCard: String, bio: String, completionHandler: @escaping (AFDataResponse<AuthResult>) -> Void) {
+        let requestModel = Edit(baseUrl: baseUrl,
+                                        id: id,
+                                        login: userName,
+                                        password: password,
+                                        email: email,
+                                        gender: gender,
+                                        creditCard: creditCard,
+                                        bio: bio)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 }

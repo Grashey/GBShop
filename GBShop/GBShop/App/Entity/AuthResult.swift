@@ -11,4 +11,5 @@ import Foundation
 struct AuthResult: Codable {
     let result: Int
     let user: User?
+    let userMessage: String?
 }
