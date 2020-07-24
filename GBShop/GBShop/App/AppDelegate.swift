@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         user.creditCard = "9872389-2424-234224-234"
         user.bio = "This is good! I think I will switch to another language"
             
-        auth.registration(id: user.id, userName: user.name, password: user.password, email: user.email, gender: user.gender, creditCard: user.creditCard, bio: user.bio) { response in
+        auth.registerUser(id: user.id, userName: user.name, password: user.password, email: user.email, gender: user.gender, creditCard: user.creditCard, bio: user.bio) { response in
             switch response.result {
                 case .success(let answer):
                     print("registration ", answer)
@@ -52,7 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-        auth.edit(id: user.id, userName: user.name, password: user.password, email: user.email, gender: user.gender, creditCard: user.creditCard, bio: user.bio) { response in
+        auth.editUserInfo(id: user.id, userName: user.name, password: user.password, email: user.email, gender: user.gender, creditCard: user.creditCard, bio: user.bio) { response in
             switch response.result {
                 case .success(let answer):
                     print("edit", answer)
