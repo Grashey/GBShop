@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let auth = requestFactory.makeAuthRequestFatory()
+        let catalog = requestFactory.makeCatalogRequestFatory()
         
         user.id = 123
         user.name = "Somebody"
@@ -24,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         user.gender = "male"
         user.creditCard = "9872389-2424-234224-234"
         user.bio = "This is good! I think I will switch to another language"
-            
+
         auth.registerUser(id: user.id, userName: user.name, password: user.password, email: user.email, gender: user.gender, creditCard: user.creditCard, bio: user.bio) { response in
             switch response.result {
                 case .success(let answer):
@@ -33,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     print(error.localizedDescription)
             }
         }
-        
+
         auth.logout(id: user.id) { response in
             switch response.result {
                 case .success(let answer):
@@ -42,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     print(error.localizedDescription)
             }
         }
-        
+
         auth.login(userName: user.name, password: user.password) { response in
             switch response.result {
                 case .success(let answer):
@@ -51,13 +52,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     print(error.localizedDescription)
             }
         }
-        
+
         auth.editUserInfo(id: user.id, userName: user.name, password: user.password, email: user.email, gender: user.gender, creditCard: user.creditCard, bio: user.bio) { response in
             switch response.result {
                 case .success(let answer):
                     print("edit", answer)
                 case .failure(let error):
                     print(error.localizedDescription)
+            }
+        }
+        
+        catalog.fetchCatalog(pageNumber: 1, categoryId: 1) { response in
+            switch response.result {
+            case .success(let answer):
+                print("catalog", answer)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
+        catalog.fetchProduct(productId: 123) { response in
+            switch response.result {
+            case .success(let answer):
+                print("product", answer)
+            case .failure(let error):
+                print(error.localizedDescription)
             }
         }
             return true

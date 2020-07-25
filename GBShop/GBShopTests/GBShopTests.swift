@@ -93,5 +93,33 @@ class GBShopTests: XCTestCase {
         }
         wait(for: [expectation], timeout: 10)
     }
+    
+    func testFetchProduct() {
+        let catalog = Catalog(errorParser: errorParser, sessionManager: Session())
+        catalog.fetchProduct(productId: 12345) { (response: AFDataResponse<ProductResult>) in
+            switch response.result {
+                case .failure(_):
+                    XCTFail()
+                case .success(_):
+                    XCTAssert(true)
+            }
+            self.expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 10)
+    }
+    
+    func testFetchCatalog() {
+        let catalog = Catalog(errorParser: errorParser, sessionManager: Session())
+        catalog.fetchCatalog(pageNumber: 1, categoryId: 12345) { (response: AFDataResponse<[CatalogResult]>) in
+            switch response.result {
+                case .failure(_):
+                    XCTFail()
+                case .success(_):
+                    XCTAssert(true)
+            }
+            self.expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 10)
+    }
 
 }
