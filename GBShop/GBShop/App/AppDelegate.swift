@@ -61,7 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     print(error.localizedDescription)
             }
         }
-        
+
         catalog.fetchCatalog(pageNumber: 1, categoryId: 1) { response in
             switch response.result {
             case .success(let answer):
@@ -70,7 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print(error.localizedDescription)
             }
         }
-        
+
         catalog.fetchProduct(productId: 123) { response in
             switch response.result {
             case .success(let answer):
