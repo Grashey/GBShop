@@ -15,8 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let user = UserSession.instance
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let auth = requestFactory.makeAuthRequestFatory()
-        let catalog = requestFactory.makeCatalogRequestFatory()
+        let auth = requestFactory.makeAuthRequestFactory()
+        let catalog = requestFactory.makeCatalogRequestFactory()
+        let review = requestFactory.makeReviewRequestFactory()
         
         user.id = 123
         user.name = "Somebody"
@@ -64,22 +65,49 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         catalog.fetchCatalog(pageNumber: 1, categoryId: 1) { response in
             switch response.result {
-            case .success(let answer):
-                print("catalog", answer)
-            case .failure(let error):
-                print(error.localizedDescription)
+                case .success(let answer):
+                    print("catalog", answer)
+                case .failure(let error):
+                    print(error.localizedDescription)
             }
         }
 
         catalog.fetchProduct(productId: 123) { response in
             switch response.result {
-            case .success(let answer):
-                print("product", answer)
-            case .failure(let error):
-                print(error.localizedDescription)
+                case .success(let answer):
+                    print("product", answer)
+                case .failure(let error):
+                    print(error.localizedDescription)
             }
         }
-            return true
+        
+        review.fetchReviews(productId: 123, pageNumber: 1) { response in
+            switch response.result {
+                case .success(let answer):
+                    print("fetchReview", answer)
+                case .failure(let error):
+                    print(error.localizedDescription)
+            }
+        }
+        
+        review.addReview(productId: 123, userId: 123, userText: "Nice device") { response in
+            switch response.result {
+                case .success(let answer):
+                    print("addReview", answer)
+                case .failure(let error):
+                    print(error.localizedDescription)
+            }
+        }
+        
+        review.removeReview(productId: 123, userId: 123) { response in
+            switch response.result {
+                case .success(let answer):
+                    print("removeReview", answer)
+                case .failure(let error):
+                    print(error.localizedDescription)
+            }
+        }
+        return true
     }
 
 

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CatalogResult: Codable {
+struct CatalogModel: Codable {
     let id: Int
     let name: String
     let price: Int

@@ -10,6 +10,6 @@ import Foundation
 
 struct AuthResult: Codable {
     let result: Int
-    let user: User?
+    let user: UserModel?
     let userMessage: String?
 }
