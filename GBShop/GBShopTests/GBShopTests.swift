@@ -110,7 +110,7 @@ class GBShopTests: XCTestCase {
     
     func testFetchCatalog() {
         let catalog = Catalog(errorParser: errorParser, sessionManager: Session())
-        catalog.fetchCatalog(pageNumber: 1, categoryId: 12345) { (response: AFDataResponse<[CatalogResult]>) in
+        catalog.fetchCatalog(pageNumber: 1, categoryId: 12345) { (response: AFDataResponse<CatalogResult>) in
             switch response.result {
                 case .failure(_):
                     XCTFail()
@@ -121,5 +121,47 @@ class GBShopTests: XCTestCase {
         }
         wait(for: [expectation], timeout: 10)
     }
-
+    
+    func testAddReview() {
+        let review = Review(errorParser: errorParser, sessionManager: Session())
+        review.addReview(productId: 123, userId: 123, userText: "Cool!") { (response: AFDataResponse<ReviewResult>) in
+            switch response.result {
+                case .failure(_):
+                    XCTFail()
+                case .success(_):
+                    XCTAssert(true)
+            }
+            self.expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 10)
+    }
+    
+    func testRemoveReview() {
+        let review = Review(errorParser: errorParser, sessionManager: Session())
+        review.removeReview(productId: 123, userId: 123) { (response: AFDataResponse<ReviewResult>) in
+            switch response.result {
+                case .failure(_):
+                    XCTFail()
+                case .success(_):
+                    XCTAssert(true)
+            }
+            self.expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 10)
+    }
+    
+    func testfetchReviews() {
+        let review = Review(errorParser: errorParser, sessionManager: Session())
+        review.fetchReviews(productId: 123, pageNumber: 1) { (response: AFDataResponse<ReviewResult>) in
+            switch response.result {
+                case .failure(_):
+                    XCTFail()
+                case .success(_):
+                    XCTAssert(true)
+            }
+            self.expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 10)
+    }
+    
 }

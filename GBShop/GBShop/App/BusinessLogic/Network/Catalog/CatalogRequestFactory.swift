@@ -10,6 +10,6 @@ import Foundation
 import Alamofire
 
 protocol CatalogRequestFactory {
-    func fetchCatalog(pageNumber: Int, categoryId: Int, completionHandler: @escaping (AFDataResponse<[CatalogResult]>) -> Void)
+    func fetchCatalog(pageNumber: Int, categoryId: Int, completionHandler: @escaping (AFDataResponse<CatalogResult>) -> Void)
     func fetchProduct(productId: Int, completionHandler: @escaping (AFDataResponse<ProductResult>) -> Void)
 }
