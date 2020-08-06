@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let auth = requestFactory.makeAuthRequestFactory()
         let catalog = requestFactory.makeCatalogRequestFactory()
         let review = requestFactory.makeReviewRequestFactory()
+        let basket = requestFactory.makeBasketRequestFactory()
         
         user.id = 123
         user.name = "Somebody"
@@ -107,6 +108,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     print(error.localizedDescription)
             }
         }
+        
+        basket.addToBasket(productId: 123, quantity: 1) { response in
+            switch response.result {
+                case .success(let answer):
+                    print("addToBasket", answer)
+                case .failure(let error):
+                    print(error.localizedDescription)
+            }
+        }
+        
+        basket.deleteFromBasket(productId: 123) { response in
+            switch response.result {
+                case .success(let answer):
+                    print("deleteFromBasket", answer)
+                case .failure(let error):
+                    print(error.localizedDescription)
+            }
+        }
+        
+        basket.getBasket(userId: 123) { response in
+            switch response.result {
+                case .success(let answer):
+                    print("getBasket", answer)
+                case .failure(let error):
+                    print(error.localizedDescription)
+            }
+        }
+        
         return true
     }
 
