@@ -24,24 +24,21 @@ class RequestFactory {
     }()
     
     let sessionQueue = DispatchQueue.global(qos: .utility)
+    lazy var errorParser = makeErrorParser()
     
     func makeAuthRequestFactory() -> AuthRequestFactory {
-        let errorParser = makeErrorParser()
         return Auth(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue)
     }
     
     func makeCatalogRequestFactory() -> CatalogRequestFactory {
-        let errorParser = makeErrorParser()
         return Catalog(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue)
     }
     
     func makeReviewRequestFactory() -> ReviewRequestFactory {
-        let errorParser = makeErrorParser()
         return Review(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue)
     }
     
     func makeBasketRequestFactory() -> BasketRequestFactory {
-        let errorParser = makeErrorParser()
         return Basket(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue)
     }
     
