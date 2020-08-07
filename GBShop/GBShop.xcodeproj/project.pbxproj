@@ -46,6 +46,14 @@
 		B6C1B50D24D9DFE2006FFB58 /* FetchReviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C1B50C24D9DFE2006FFB58 /* FetchReviews.swift */; };
 		B6C1B51124D9E225006FFB58 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C1B51024D9E225006FFB58 /* Review.swift */; };
 		B6C1B51324DACEF4006FFB58 /* CatalogResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C1B51224DACEF4006FFB58 /* CatalogResult.swift */; };
+		B6C1B51924DC0431006FFB58 /* BasketRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C1B51824DC0431006FFB58 /* BasketRequestFactory.swift */; };
+		B6C1B51B24DC0590006FFB58 /* BasketResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C1B51A24DC0590006FFB58 /* BasketResult.swift */; };
+		B6C1B51D24DC05CD006FFB58 /* DefaultResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C1B51C24DC05CD006FFB58 /* DefaultResult.swift */; };
+		B6C1B51F24DC0697006FFB58 /* BasketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C1B51E24DC0697006FFB58 /* BasketModel.swift */; };
+		B6C1B52424DC0909006FFB58 /* AddToBasket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C1B52324DC0909006FFB58 /* AddToBasket.swift */; };
+		B6C1B52624DC0971006FFB58 /* DeleteFromBasket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C1B52524DC0971006FFB58 /* DeleteFromBasket.swift */; };
+		B6C1B52824DC09D2006FFB58 /* GetBasket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C1B52724DC09D2006FFB58 /* GetBasket.swift */; };
+		B6C1B52C24DC0B6F006FFB58 /* Basket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C1B52B24DC0B6F006FFB58 /* Basket.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +124,14 @@
 		B6C1B50C24D9DFE2006FFB58 /* FetchReviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchReviews.swift; sourceTree = "<group>"; };
 		B6C1B51024D9E225006FFB58 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		B6C1B51224DACEF4006FFB58 /* CatalogResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogResult.swift; sourceTree = "<group>"; };
+		B6C1B51824DC0431006FFB58 /* BasketRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketRequestFactory.swift; sourceTree = "<group>"; };
+		B6C1B51A24DC0590006FFB58 /* BasketResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketResult.swift; sourceTree = "<group>"; };
+		B6C1B51C24DC05CD006FFB58 /* DefaultResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultResult.swift; sourceTree = "<group>"; };
+		B6C1B51E24DC0697006FFB58 /* BasketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketModel.swift; sourceTree = "<group>"; };
+		B6C1B52324DC0909006FFB58 /* AddToBasket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToBasket.swift; sourceTree = "<group>"; };
+		B6C1B52524DC0971006FFB58 /* DeleteFromBasket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFromBasket.swift; sourceTree = "<group>"; };
+		B6C1B52724DC09D2006FFB58 /* GetBasket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBasket.swift; sourceTree = "<group>"; };
+		B6C1B52B24DC0B6F006FFB58 /* Basket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Basket.swift; sourceTree = "<group>"; };
 		D6FF15D8B9FB2BCBC762A717 /* Pods_GBShop_GBShopUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GBShop_GBShopUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -207,6 +223,7 @@
 				B6163E4024CB6CCD00B342BA /* Auth */,
 				B6163E4E24CB747800B342BA /* Catalog */,
 				B6C1B50F24D9E0E4006FFB58 /* Review */,
+				B6C1B52A24DC0B3A006FFB58 /* Basket */,
 				B63E417B24C5999500DF65B6 /* RequestFactory.swift */,
 			);
 			path = Network;
@@ -328,6 +345,8 @@
 				B6C1B51424DACFA8006FFB58 /* Auth */,
 				B6C1B51624DACFC1006FFB58 /* Review */,
 				B6C1B51724DACFD1006FFB58 /* Catalog */,
+				B6C1B52024DC0720006FFB58 /* Basket */,
+				B6C1B51C24DC05CD006FFB58 /* DefaultResult.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -392,6 +411,35 @@
 				B6163E4324CB6D5000B342BA /* CatalogModel.swift */,
 			);
 			path = Catalog;
+			sourceTree = "<group>";
+		};
+		B6C1B52024DC0720006FFB58 /* Basket */ = {
+			isa = PBXGroup;
+			children = (
+				B6C1B51A24DC0590006FFB58 /* BasketResult.swift */,
+				B6C1B51E24DC0697006FFB58 /* BasketModel.swift */,
+			);
+			path = Basket;
+			sourceTree = "<group>";
+		};
+		B6C1B52924DC0A14006FFB58 /* Basket extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B6C1B52324DC0909006FFB58 /* AddToBasket.swift */,
+				B6C1B52524DC0971006FFB58 /* DeleteFromBasket.swift */,
+				B6C1B52724DC09D2006FFB58 /* GetBasket.swift */,
+			);
+			path = "Basket extensions";
+			sourceTree = "<group>";
+		};
+		B6C1B52A24DC0B3A006FFB58 /* Basket */ = {
+			isa = PBXGroup;
+			children = (
+				B6C1B51824DC0431006FFB58 /* BasketRequestFactory.swift */,
+				B6C1B52B24DC0B6F006FFB58 /* Basket.swift */,
+				B6C1B52924DC0A14006FFB58 /* Basket extensions */,
+			);
+			path = Basket;
 			sourceTree = "<group>";
 		};
 		D3043DF89949AAD2B47A09CD /* Frameworks */ = {
@@ -648,16 +696,22 @@
 				B63E416D24C44F3600DF65B6 /* DataRequest.swift in Sources */,
 				B6163E4424CB6D5000B342BA /* CatalogModel.swift in Sources */,
 				B63E418224C8727900DF65B6 /* Logout.swift in Sources */,
+				B6C1B52624DC0971006FFB58 /* DeleteFromBasket.swift in Sources */,
 				B6C1B4FD24D9D998006FFB58 /* ReviewRequestFactory.swift in Sources */,
 				B6163E3D24CB52EC00B342BA /* PostStub.swift in Sources */,
+				B6C1B52C24DC0B6F006FFB58 /* Basket.swift in Sources */,
 				B6C1B51324DACEF4006FFB58 /* CatalogResult.swift in Sources */,
 				B6163E4624CB70A900B342BA /* ProductResult.swift in Sources */,
 				B63E417824C46E0800DF65B6 /* AuthRequestFactory.swift in Sources */,
+				B6C1B52424DC0909006FFB58 /* AddToBasket.swift in Sources */,
 				B6163E4224CB6CFE00B342BA /* CatalogRequestFactory.swift in Sources */,
 				B63E417124C4544400DF65B6 /* RequestRouter.swift in Sources */,
 				B63E418024C871FA00DF65B6 /* Login.swift in Sources */,
 				B6A1B57424C0A68D00AF178B /* AppDelegate.swift in Sources */,
 				B6163E4824CB719300B342BA /* Catalog.swift in Sources */,
+				B6C1B51D24DC05CD006FFB58 /* DefaultResult.swift in Sources */,
+				B6C1B52824DC09D2006FFB58 /* GetBasket.swift in Sources */,
+				B6C1B51B24DC0590006FFB58 /* BasketResult.swift in Sources */,
 				B63E417324C46B9800DF65B6 /* AuthResult.swift in Sources */,
 				B63E417A24C46E6D00DF65B6 /* Auth.swift in Sources */,
 				B6C1B50B24D9DEF8006FFB58 /* RemoveReview.swift in Sources */,
@@ -671,9 +725,11 @@
 				B6C1B51124D9E225006FFB58 /* Review.swift in Sources */,
 				B63E418424C87A7200DF65B6 /* Registration.swift in Sources */,
 				B63E416B24C44E9F00DF65B6 /* ErrorParser.swift in Sources */,
+				B6C1B51F24DC0697006FFB58 /* BasketModel.swift in Sources */,
 				B6C1B50D24D9DFE2006FFB58 /* FetchReviews.swift in Sources */,
 				B63E418624C884D400DF65B6 /* UserSession.swift in Sources */,
 				B6C1B50524D9DB0E006FFB58 /* ReviewModel.swift in Sources */,
+				B6C1B51924DC0431006FFB58 /* BasketRequestFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

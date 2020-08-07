@@ -38,7 +38,7 @@ class GBShopTests: XCTestCase {
 //        wait(for: [expectation], timeout: 10)
 //    }
     
-    func testLogin() {
+    func testLogIn() {
         let auth = Auth(errorParser: errorParser, sessionManager: Session())
         auth.login(userName: "test", password: "123456") { (response: AFDataResponse<AuthResult>) in
             switch response.result {
@@ -52,7 +52,7 @@ class GBShopTests: XCTestCase {
         wait(for: [expectation], timeout: 10)
     }
     
-    func testLogout() {
+    func testLogOut() {
         let auth = Auth(errorParser: errorParser, sessionManager: Session())
         auth.logout(id: 1234) { (response: AFDataResponse<AuthResult>) in
             switch response.result {
@@ -150,7 +150,7 @@ class GBShopTests: XCTestCase {
         wait(for: [expectation], timeout: 10)
     }
     
-    func testfetchReviews() {
+    func testFetchReviews() {
         let review = Review(errorParser: errorParser, sessionManager: Session())
         review.fetchReviews(productId: 123, pageNumber: 1) { (response: AFDataResponse<ReviewResult>) in
             switch response.result {
@@ -163,5 +163,48 @@ class GBShopTests: XCTestCase {
         }
         wait(for: [expectation], timeout: 10)
     }
+    
+    func testAddToBasket() {
+        let basket = Basket(errorParser: errorParser, sessionManager: Session())
+        basket.addToBasket(productId: 123, quantity: 1) { (response: AFDataResponse<DefaultResult>) in
+            switch response.result {
+                case .failure(_):
+                    XCTFail()
+                case .success(_):
+                    XCTAssert(true)
+            }
+            self.expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 10)
+    }
+    
+    func testDeleteFromBasket() {
+        let basket = Basket(errorParser: errorParser, sessionManager: Session())
+        basket.deleteFromBasket(productId: 123) { (response: AFDataResponse<DefaultResult>) in
+            switch response.result {
+                case .failure(_):
+                    XCTFail()
+                case .success(_):
+                    XCTAssert(true)
+            }
+            self.expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 10)
+    }
+    
+    func testGetBasket() {
+        let basket = Basket(errorParser: errorParser, sessionManager: Session())
+        basket.getBasket(userId: 123) { (response: AFDataResponse<BasketResult>) in
+            switch response.result {
+                case .failure(_):
+                    XCTFail()
+                case .success(_):
+                    XCTAssert(true)
+            }
+            self.expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 10)
+    }
+
     
 }
