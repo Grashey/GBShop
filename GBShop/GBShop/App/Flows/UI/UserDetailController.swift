@@ -30,6 +30,24 @@ class UserDetailController: ScrollableViewController {
     }
     
     @IBAction func saveButtonPressed(_ sender: Any) {
+        let requestFactory = userSession.requestFactory
+        let auth = requestFactory.makeAuthRequestFactory()
+        let id = 123
+        let userName = userDetailView.nameTextField.text ?? ""
+        let password = userDetailView.passwordTextField.text ?? ""
+        let email = userDetailView.emailTextField.text ?? ""
+        let gender = userDetailView.genderTextField.text ?? ""
+        let creditCard = userDetailView.creditCardTextField.text ?? ""
+        let bio = userDetailView.bioTextField.text ?? ""
+        auth.editUserInfo(id: id, userName: userName, password: password, email: email, gender: gender, creditCard: creditCard, bio: bio)  { response in
+                    switch response.result {
+                        case .success(let answer):
+                            print("edit", answer)
+                        case .failure(let error):
+                            print(error.localizedDescription)
+                    }
+        }
+        self.saveCompleted()
     }
     
     @IBAction func logOutButtonPressed(_ sender: Any) {
@@ -45,6 +63,12 @@ class UserDetailController: ScrollableViewController {
             }
         }
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    func saveCompleted() {
+        let alert = UIAlertController(title: "", message: "Saved!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true)
     }
     
     

@@ -37,7 +37,6 @@ class UserRegistrationController: ScrollableViewController {
                         print("registration ", answer)
                         if let message = answer.userMessage {
                             authMessage = message
-                            print(authMessage)
                         }
                     case .failure(let error):
                         print(error.localizedDescription)
@@ -50,9 +49,8 @@ class UserRegistrationController: ScrollableViewController {
     }
     
     func registrationCompleted(message: String) {
-        let alert = UIAlertController(title: "", message: "\(message)", preferredStyle: .alert)
+        let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-            print(alert)
             self.navigationController?.popViewController(animated: true)
         }))
         self.present(alert, animated: true)
