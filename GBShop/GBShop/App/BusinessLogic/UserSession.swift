@@ -21,4 +21,5 @@ class UserSession {
     var gender = String()
     var creditCard = String()
     var bio = String()
+    var requestFactory = RequestFactory()
 }
