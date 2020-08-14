@@ -26,7 +26,6 @@ class UserLoginController: ScrollableViewController {
     @IBAction func registrationButtonPressed(_ sender: UIBarButtonItem) {
         let destinationVC = storyboard?.instantiateViewController(withIdentifier: "UserRegistrationController") as! UserRegistrationController
         self.navigationController?.pushViewController(destinationVC, animated: true)
-        
     }
     
     @IBAction func loginButtonPressed(_ sender: Any) {
@@ -34,20 +33,24 @@ class UserLoginController: ScrollableViewController {
         let auth = requestFactory.makeAuthRequestFactory()
         if let name = userLoginView.loginTextField.text,
             let password = userLoginView.passwordTextField.text {
-            print(name, password)
                 auth.login(userName: name, password: password) { response in
                     switch response.result {
                         case .success(let answer):
-                            print("login", answer)
+                            if let id = answer.user?.id,
+                                let name = answer.user?.name,
+                                let surname = answer.user?.lastname {
+                                self.userSession.id = id
+                                self.userSession.name = name + " " + surname
+                            }
+                        DispatchQueue.main.async {
+                            let destinationVC = self.storyboard?.instantiateViewController(withIdentifier: "UserDetailController") as! UserDetailController
+                            self.navigationController?.pushViewController(destinationVC, animated: true)
+                            self.userLoginView.passwordTextField.text = ""
+                        }
                         case .failure(let error):
                             print(error.localizedDescription)
                     }
                 }
-            userLoginView.passwordTextField.text = ""
         }
-        
-        let destinationVC = storyboard?.instantiateViewController(withIdentifier: "UserDetailController") as! UserDetailController
-        self.navigationController?.pushViewController(destinationVC, animated: true)
     }
-    
 }

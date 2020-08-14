@@ -27,5 +27,4 @@ class UserDetailView: UIScrollView {
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var logOutButton: UIButton!
     
-    
 }

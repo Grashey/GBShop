@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol ViewControllerNeedsScrollView {
+    var scrollView: UIScrollView? { get }
+}
+
 class ScrollableViewController: UIViewController, ViewControllerNeedsScrollView {
     
     var scrollView: UIScrollView?
@@ -28,7 +32,6 @@ class ScrollableViewController: UIViewController, ViewControllerNeedsScrollView 
         
         NotificationCenter.default.removeObserver(self)
         navigationController?.navigationBar.isHidden = false
-    
     }
     
     @objc private func keyboardWasShown(notification: Notification){
@@ -48,8 +51,4 @@ class ScrollableViewController: UIViewController, ViewControllerNeedsScrollView 
     @objc private func hideKeyboard(){
         scrollView?.endEditing(true)
     }
-}
-
-protocol ViewControllerNeedsScrollView {
-    var scrollView: UIScrollView? { get }
 }

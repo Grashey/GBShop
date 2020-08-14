@@ -18,6 +18,10 @@
 		B6163E4A24CB732200B342BA /* CatalogData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6163E4924CB732200B342BA /* CatalogData.swift */; };
 		B6163E4C24CB73B400B342BA /* ProductData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6163E4B24CB73B400B342BA /* ProductData.swift */; };
 		B627B47024E2F88A00EC2D22 /* ScrollableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B627B46F24E2F88A00EC2D22 /* ScrollableViewController.swift */; };
+		B627B47324E6916100EC2D22 /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B627B47224E6916100EC2D22 /* CatalogViewController.swift */; };
+		B627B47524E691DD00EC2D22 /* ViewCell + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B627B47424E691DD00EC2D22 /* ViewCell + ext.swift */; };
+		B627B47724E6A4F700EC2D22 /* CatalogViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B627B47624E6A4F700EC2D22 /* CatalogViewCell.swift */; };
+		B627B47C24E6C95400EC2D22 /* CatalogHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B627B47B24E6C95400EC2D22 /* CatalogHeaderView.swift */; };
 		B63E416924C44DE800DF65B6 /* AbstractErrorParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63E416824C44DE800DF65B6 /* AbstractErrorParser.swift */; };
 		B63E416B24C44E9F00DF65B6 /* ErrorParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63E416A24C44E9F00DF65B6 /* ErrorParser.swift */; };
 		B63E416D24C44F3600DF65B6 /* DataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63E416C24C44F3600DF65B6 /* DataRequest.swift */; };
@@ -98,6 +102,10 @@
 		B6163E4924CB732200B342BA /* CatalogData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogData.swift; sourceTree = "<group>"; };
 		B6163E4B24CB73B400B342BA /* ProductData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductData.swift; sourceTree = "<group>"; };
 		B627B46F24E2F88A00EC2D22 /* ScrollableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableViewController.swift; sourceTree = "<group>"; };
+		B627B47224E6916100EC2D22 /* CatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewController.swift; sourceTree = "<group>"; };
+		B627B47424E691DD00EC2D22 /* ViewCell + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewCell + ext.swift"; sourceTree = "<group>"; };
+		B627B47624E6A4F700EC2D22 /* CatalogViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewCell.swift; sourceTree = "<group>"; };
+		B627B47B24E6C95400EC2D22 /* CatalogHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogHeaderView.swift; sourceTree = "<group>"; };
 		B63E416824C44DE800DF65B6 /* AbstractErrorParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractErrorParser.swift; sourceTree = "<group>"; };
 		B63E416A24C44E9F00DF65B6 /* ErrorParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorParser.swift; sourceTree = "<group>"; };
 		B63E416C24C44F3600DF65B6 /* DataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRequest.swift; sourceTree = "<group>"; };
@@ -221,6 +229,29 @@
 			path = Catalog;
 			sourceTree = "<group>";
 		};
+		B627B47124E690E500EC2D22 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				B66E528624E14E1900C82D0A /* UserLoginView.swift */,
+				B66E528C24E1526500C82D0A /* UserLoginController.swift */,
+				B66E528E24E1541A00C82D0A /* UserRegistrationController.swift */,
+				B66E528824E1504400C82D0A /* UserRegistrationView.swift */,
+				B66E528A24E1511D00C82D0A /* UserDetailView.swift */,
+				B66E529024E1549000C82D0A /* UserDetailController.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		B627B47A24E6C62400EC2D22 /* Catalog */ = {
+			isa = PBXGroup;
+			children = (
+				B627B47224E6916100EC2D22 /* CatalogViewController.swift */,
+				B627B47624E6A4F700EC2D22 /* CatalogViewCell.swift */,
+				B627B47B24E6C95400EC2D22 /* CatalogHeaderView.swift */,
+			);
+			path = Catalog;
+			sourceTree = "<group>";
+		};
 		B63E416724C44DA100DF65B6 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,13 +291,10 @@
 			isa = PBXGroup;
 			children = (
 				B66E528424DDA94B00C82D0A /* Main.storyboard */,
-				B66E528624E14E1900C82D0A /* UserLoginView.swift */,
-				B66E528C24E1526500C82D0A /* UserLoginController.swift */,
-				B66E528E24E1541A00C82D0A /* UserRegistrationController.swift */,
-				B66E528824E1504400C82D0A /* UserRegistrationView.swift */,
-				B66E528A24E1511D00C82D0A /* UserDetailView.swift */,
-				B66E529024E1549000C82D0A /* UserDetailController.swift */,
+				B627B47124E690E500EC2D22 /* Auth */,
+				B627B47A24E6C62400EC2D22 /* Catalog */,
 				B627B46F24E2F88A00EC2D22 /* ScrollableViewController.swift */,
+				B627B47424E691DD00EC2D22 /* ViewCell + ext.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -723,6 +751,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B627B47324E6916100EC2D22 /* CatalogViewController.swift in Sources */,
 				B63E417C24C5999500DF65B6 /* RequestFactory.swift in Sources */,
 				B63E418824CB05AE00DF65B6 /* Edit.swift in Sources */,
 				B63E416924C44DE800DF65B6 /* AbstractErrorParser.swift in Sources */,
@@ -734,7 +763,9 @@
 				B6C1B4FD24D9D998006FFB58 /* ReviewRequestFactory.swift in Sources */,
 				B6163E3D24CB52EC00B342BA /* PostStub.swift in Sources */,
 				B6C1B52C24DC0B6F006FFB58 /* Basket.swift in Sources */,
+				B627B47524E691DD00EC2D22 /* ViewCell + ext.swift in Sources */,
 				B6C1B51324DACEF4006FFB58 /* CatalogResult.swift in Sources */,
+				B627B47724E6A4F700EC2D22 /* CatalogViewCell.swift in Sources */,
 				B6163E4624CB70A900B342BA /* ProductResult.swift in Sources */,
 				B63E417824C46E0800DF65B6 /* AuthRequestFactory.swift in Sources */,
 				B6C1B52424DC0909006FFB58 /* AddToBasket.swift in Sources */,
@@ -764,6 +795,7 @@
 				B63E416B24C44E9F00DF65B6 /* ErrorParser.swift in Sources */,
 				B6C1B51F24DC0697006FFB58 /* BasketModel.swift in Sources */,
 				B66E528924E1504400C82D0A /* UserRegistrationView.swift in Sources */,
+				B627B47C24E6C95400EC2D22 /* CatalogHeaderView.swift in Sources */,
 				B6C1B50D24D9DFE2006FFB58 /* FetchReviews.swift in Sources */,
 				B63E418624C884D400DF65B6 /* UserSession.swift in Sources */,
 				B66E528724E14E1900C82D0A /* UserLoginView.swift in Sources */,

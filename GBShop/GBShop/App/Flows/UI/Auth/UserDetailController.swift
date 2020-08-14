@@ -13,7 +13,6 @@ class UserDetailController: ScrollableViewController {
     @IBOutlet var userDetailView: UserDetailView!
     let userSession = UserSession.instance
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.scrollView = userDetailView.scrollView
@@ -22,6 +21,7 @@ class UserDetailController: ScrollableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
+        userDetailView.titleLabel.text = "Welcome, \(userSession.name)"
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -43,11 +43,13 @@ class UserDetailController: ScrollableViewController {
                     switch response.result {
                         case .success(let answer):
                             print("edit", answer)
+                            DispatchQueue.main.async {
+                                self.saveCompleted()
+                            }
                         case .failure(let error):
                             print(error.localizedDescription)
                     }
         }
-        self.saveCompleted()
     }
     
     @IBAction func logOutButtonPressed(_ sender: Any) {
@@ -58,11 +60,13 @@ class UserDetailController: ScrollableViewController {
             switch response.result {
                 case .success(let answer):
                     print("logout", answer)
+                    DispatchQueue.main.async {
+                        self.navigationController?.popViewController(animated: true)
+                    }
                 case .failure(let error):
                     print(error.localizedDescription)
             }
         }
-        self.navigationController?.popViewController(animated: true)
     }
     
     func saveCompleted() {
@@ -70,7 +74,4 @@ class UserDetailController: ScrollableViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true)
     }
-    
-    
-
 }
