@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserDetailView: UIScrollView {
+class UserDetailView: UIView {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var titleLabel: UILabel!
