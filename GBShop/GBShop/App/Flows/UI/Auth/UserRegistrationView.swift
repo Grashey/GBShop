@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserRegistrationView: UIScrollView {
+class UserRegistrationView: UIView {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var titleLabel: UILabel!
